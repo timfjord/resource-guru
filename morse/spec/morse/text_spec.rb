@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Morse::Text do
+RSpec.describe Morse::Text do
   describe '#to_a' do
     it 'should split text into array and add letter and word devider' do
       text = Morse::Text.new 'I AM IN TROUBLE'
@@ -53,7 +53,7 @@ describe Morse::Text do
 
   describe '#obfuscated' do
     it 'should generate obfuscated text' do
-      text = Morse::Text.new 'I AM IN TROUBLE'
+      text = Morse::Text.new('I AM IN TROUBLE')
 
       expect(text.obfuscated).to eql '2/1A|B/2|A1/A|1A1|C|2A|A3|1A2|1'
     end

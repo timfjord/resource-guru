@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+gem 'thor'
+
 group :development, :test do
   gem 'rspec'
   gem 'byebug'
@@ -8,4 +10,8 @@ end
 group :development do
   gem 'guard-rspec'
   gem 'pry'
+end
+
+group :test do
+  gem 'aruba', '~> 0.14.1'
 end

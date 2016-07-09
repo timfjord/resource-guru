@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Morse::Char do
+RSpec.describe Morse::Char do
   describe '#upcased' do
     it 'should generate upcased version if passed char' do
       expect(Morse::Char.new('a').upcased).to eql 'A'

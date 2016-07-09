@@ -1,3 +1,7 @@
-#!/usr/bin/env bash
+#!/usr/bin/env ruby
+$LOAD_PATH.unshift File.expand_path('../../lib', __FILE__)
 
-bundle exec foreman start
+require 'bundler/setup'
+require 'morse'
+
+Morse::Cli.start
