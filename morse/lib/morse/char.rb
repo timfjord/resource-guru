@@ -22,5 +22,12 @@ module Morse
     def encoded
       @encoded ||= MAP[upcased] || raise(InvalidChar, "#{@raw} char is invalid")
     end
+
+    def obfuscated
+      @obfuscated ||= encoded.each_char
+        .chunk { |el| el == '.' }
+        .map { |is_dot, arr| is_dot ? arr.size : (64 + arr.size).chr }
+        .join
+    end
   end
 end

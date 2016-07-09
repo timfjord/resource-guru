@@ -20,4 +20,15 @@ describe Morse::Char do
       expect(Morse::Char.new('a').encoded).to eql '.-'
     end
   end
+
+  describe '#obfuscated' do
+    it 'should generate obfuscated version of encoded char' do
+      expect(Morse::Char.new('S').obfuscated).to eql '3'
+      expect(Morse::Char.new('s').obfuscated).to eql '3'
+      expect(Morse::Char.new('Q').obfuscated).to eql 'B1A'
+      expect(Morse::Char.new('q').obfuscated).to eql 'B1A'
+      expect(Morse::Char.new('F').obfuscated).to eql '2A1'
+      expect(Morse::Char.new('f').obfuscated).to eql '2A1'
+    end
+  end
 end
