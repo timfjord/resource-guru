@@ -18,6 +18,8 @@ module Morse
       @str.each_line do |text|
         say Text.new(text.strip).obfuscated
       end
+    rescue Morse::InvalidChar => e
+      abort e.message
     end
   end
 end
