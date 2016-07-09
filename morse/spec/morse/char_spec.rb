@@ -30,5 +30,34 @@ describe Morse::Char do
       expect(Morse::Char.new('F').obfuscated).to eql '2A1'
       expect(Morse::Char.new('f').obfuscated).to eql '2A1'
     end
+
+    it 'should return encoded version for letter separator' do
+      expect(Morse::Char.new('').obfuscated).to eql '|'
+    end
+
+    it 'should return encoded version for word separator' do
+      expect(Morse::Char.new(' ').obfuscated).to eql '/'
+    end
+  end
+
+  describe '#==' do
+    it 'should compare by upcased value' do
+      expect(Morse::Char.new('S')).to eq Morse::Char.new('S')
+      expect(Morse::Char.new('S')).to eq Morse::Char.new('s')
+    end
+  end
+
+  describe '#letter_separator?' do
+    it 'should detect if char is letter_separator' do
+      expect(Morse::Char.new('S')).not_to be_letter_separator
+      expect(Morse::Char.new('')).to be_letter_separator
+    end
+  end
+
+  describe '#word_separator?' do
+    it 'should detect if char is word_separator' do
+      expect(Morse::Char.new('S')).not_to be_word_separator
+      expect(Morse::Char.new(' ')).to be_word_separator
+    end
   end
 end
