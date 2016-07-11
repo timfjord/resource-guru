@@ -2,7 +2,7 @@ require 'spec_helper'
 
 RSpec.describe Morse::Char do
   describe '#upcased' do
-    it 'should generate upcased version if passed char' do
+    it 'should return upcased version' do
       expect(Morse::Char.new('a').upcased).to eql 'A'
       expect(Morse::Char.new('A').upcased).to eql 'A'
       expect(Morse::Char.new('0').upcased).to eql '0'
@@ -22,7 +22,7 @@ RSpec.describe Morse::Char do
   end
 
   describe '#obfuscated' do
-    it 'should generate obfuscated version of encoded char' do
+    it 'should generate obfuscated version for encoded char' do
       expect(Morse::Char.new('S').obfuscated).to eql '3'
       expect(Morse::Char.new('s').obfuscated).to eql '3'
       expect(Morse::Char.new('Q').obfuscated).to eql 'B1A'
@@ -48,14 +48,14 @@ RSpec.describe Morse::Char do
   end
 
   describe '#letter_separator?' do
-    it 'should detect if char is letter_separator' do
+    it 'should detect if char is letter separator' do
       expect(Morse::Char.new('S')).not_to be_letter_separator
       expect(Morse::Char.new('')).to be_letter_separator
     end
   end
 
   describe '#word_separator?' do
-    it 'should detect if char is word_separator' do
+    it 'should detect if char is word separator' do
       expect(Morse::Char.new('S')).not_to be_word_separator
       expect(Morse::Char.new(' ')).to be_word_separator
     end

@@ -2,7 +2,7 @@ require 'spec_helper'
 
 RSpec.describe Morse::Text do
   describe '#to_a' do
-    it 'should split text into array and add letter and word devider' do
+    it 'should return array with letter and word deviders' do
       text = Morse::Text.new 'I AM IN TROUBLE'
       arr = text.to_a
 
@@ -31,8 +31,8 @@ RSpec.describe Morse::Text do
       expect(arr[22]).to eq Morse::Char.new('E')
     end
 
-    it 'should include only one word separator' do
-      text = Morse::Text.new 'I AM'
+    it 'should replace consecutive spaces with only one word separator' do
+      text = Morse::Text.new 'I   AM'
       arr = text.to_a
 
       expect(arr[0]).to eq Morse::Char.new('I')
