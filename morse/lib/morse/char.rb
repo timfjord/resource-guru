@@ -20,7 +20,7 @@ module Morse
     end
 
     def encoded
-      @encoded ||= MAP[upcased] || raise(InvalidChar, "#{@raw} char is invalid")
+      MAP[upcased] || raise(InvalidChar, "#{@raw} char is invalid")
     end
 
     def obfuscated
